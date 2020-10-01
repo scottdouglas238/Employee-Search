@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import "../styles/table.css";
 
-function Table(props){
+function Table(props) {
     console.log(props)
-    return(
+    return (
     <div>
-    <thread>
-        <tr>
-        <th scope="col"><img src = {props.image}></img></th>
-        <th scope="col">{props.Name}</th>
-        <th scope="col">{props.Phone}</th>
-        <th scope="col">{props.Email}</th>
-        <th scope="col">{props.dob}</th>
-        </tr>
-    </thread>
-</div>
+        <table className="table table-striped">
+            <tbody>
+                <tr>
+                    <td scope="row"><img className="personImage" alt={props.name} src={props.img} /></td>
+                    <td>{props.name}</td>
+                    <td>{props.phone}</td>
+                    <td>{props.email}</td>
+                    <td>{props.dob}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 )
 }
 
