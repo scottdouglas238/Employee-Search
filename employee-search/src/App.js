@@ -13,9 +13,11 @@ class App extends Component {
   render(){
     return(
       <div>
-        <table className = "table table-striped">
         <Header />
         <SearchName />
+        <div class = "container">
+        <div class = "row"> 
+        <table className = "table table-striped">
         <thread>
         <tr>
         <th scope="col">Image</th>
@@ -25,31 +27,26 @@ class App extends Component {
         <th scope="col">DOB</th>
         </tr>
     </thread>
+    <tbody>
         {this.state.employees.map(employee => (
-          <Table 
-          id={employee.id}
-          img={employee.image}
-          name={employee.name}
-          phone={employee.phone}
-          email={employee.email}
-          dob={employee.dob}
-          />
+        <tr>
+        <Table 
+        id={employee.id}
+        img={employee.image}
+        name={employee.name}
+        phone={employee.phone}
+        email={employee.email}
+        dob={employee.dob}
+        />
+        </tr>
         ))}
+        </tbody>
         </table>
+        </div> 
+        </div>
       </div>
     )
   }
 }
-
-// function App() {
-//   return (
-//     <div>
-//     <Header />
-//     <SearchName />
-//     <Table />
-//     </div>
-//   )
-
-// }
 
 export default App;

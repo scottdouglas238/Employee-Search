@@ -1,4 +1,7 @@
 .searchBar{
-  position: fixed;
+  position: relative;
   left: 44%
+}
+.container{
+  margin-top: 20px;
 }
