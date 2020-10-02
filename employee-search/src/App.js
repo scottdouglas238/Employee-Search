@@ -1,20 +1,32 @@
 import React, { Component } from "react";
 import Header from "./components/Header";
-import SearchName from "./components/Search"
+import Search from "./components/Search"
 import Table from "./components/Table"
 import employees from "./employees.json"
+import "./app.css"
 
 class App extends Component {
   state = {
-    employees,
-    search: ""
+    search: "",
+    results: "",
+    employees
   };
+
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+        [name]: value
+    });
+}
 
   render() {
     return (
       <div>
         <Header />
-        <SearchName />
+        <p>{this.state.search}</p>
+        <Search 
+        search = {this.state.search}
+        handleInputChange = {this.handleInputChange}/>
         <div className="container">
           <div className="row">
             <table className="table table-striped ">
