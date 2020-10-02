@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/table.css";
 
 function Table(props) {
-    console.log(props)
+    // console.log(props)
     return (
         <>
             <th scope="row"><img className="personImage" alt={props.name} src={props.img} /></th>

@@ -5,6 +5,10 @@ import Table from "./components/Table"
 import employees from "./employees.json"
 import "./app.css"
 
+// let employeeArray = []
+// let searchArray = []
+// console.log(searchArray)
+
 class App extends Component {
   state = {
     search: "",
@@ -15,11 +19,29 @@ class App extends Component {
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-        [name]: value
+      [name]: value,
     });
+    console.log(this.state.search)
+    // searchArray.push(this.state.search)
 }
 
-  render() {
+// filterEmployees = (event) => {
+//   for (let i = 0; i < this.state.employees.length; i++) {
+//     let element = this.state.employees[i];
+//     let elementName = this.state.employees[i].name
+//     if(elementName.charAt(0) === searchArray[1]){
+//       employeeArray.push(element)
+
+//     }
+//   }
+  
+// }
+
+// componentDidMount(){
+//   this.filterEmployees()
+// }
+
+render() {
     return (
       <div>
         <Header />
@@ -43,6 +65,7 @@ class App extends Component {
                 {this.state.employees.map(employee => (
                   <tr>
                     <Table
+                      // key={employee.id}
                       id={employee.id}
                       img={employee.image}
                       name={employee.name}
