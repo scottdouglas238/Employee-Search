@@ -86,5 +86,13 @@
       "phone": "555-702-8468",
       "email": "heirofisildor@king.com",
       "dob": "7/8/1914"
+    },
+    {
+      "id": 12,
+      "image": "https://i.guim.co.uk/img/media/139b679cbd2d7de881c86a029c6e516a447dd5bb/0_798_4368_2620/master/4368.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=4dc378523750a1541b68656b19949a28",
+      "name": "Stephen Hawking",
+      "phone": "555-895-7441",
+      "email": "stephenHawking@gmail.com",
+      "dob": "1/8/1942"
     }
   ]

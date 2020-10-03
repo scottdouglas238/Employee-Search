@@ -20,14 +20,6 @@ class App extends Component {
       [name]: value
     });
   }
-  
-  // clearArray = () => {
-  //   const returnSearch = this.state.search
-  //   for (let i = 0; i < employeeArray.length; i++) {
-  //     employeeArray[i].push(null)
-     
-  //   }
-  // }
 
   filterEmployees = () => {
     employeeArray.splice(0, employeeArray.length)
@@ -37,9 +29,14 @@ class App extends Component {
       let elementName = this.state.employees[i].name
       if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && returnSearch.length === 1){
         employeeArray.push(element)
+      } else if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && elementName.charAt(1).toLocaleLowerCase() === returnSearch.charAt(1).toLocaleLowerCase() && returnSearch.length === 2){
+        employeeArray.push(element)
+      } else if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && elementName.charAt(1).toLocaleLowerCase() === returnSearch.charAt(1).toLocaleLowerCase() && elementName.charAt(2).toLocaleLowerCase() === returnSearch.charAt(2).toLocaleLowerCase() && returnSearch.length === 3){
+        employeeArray.push(element)
+      } else if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && elementName.charAt(1).toLocaleLowerCase() === returnSearch.charAt(1).toLocaleLowerCase() && elementName.charAt(2).toLocaleLowerCase() === returnSearch.charAt(2).toLocaleLowerCase() && elementName.charAt(3).toLocaleLowerCase() === returnSearch.charAt(3).toLocaleLowerCase() && returnSearch.length === 4){
+        employeeArray.push(element)
       }
-  }
-    
+  }  
 }
 
 componentDidMount(){
