@@ -5,9 +5,8 @@ import Table from "./components/Table"
 import employees from "./employees.json"
 import "./app.css"
 
-// let employeeArray = []
-// let searchArray = []
-// console.log(searchArray)
+let employeeArray = []
+console.log(employeeArray)
 
 class App extends Component {
   state = {
@@ -15,33 +14,35 @@ class App extends Component {
     results: "",
     employees
   };
-
+  
   handleInputChange = (event) => {
     const { name, value } = event.target;
+    
     this.setState({
       [name]: value,
     });
-    console.log(this.state.search)
-    // searchArray.push(this.state.search)
+  }
+  
+  filterEmployees = (event) => {
+    const returnSearch = this.state.search
+    // console.log(returnSearch)
+    // let employeeArray = []
+    for (let i = 0; i < this.state.employees.length; i++) {
+      let element = this.state.employees[i];
+      let elementName = this.state.employees[i].name
+      if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && returnSearch.length === 1){
+        employeeArray.push(element)
+      }
+  }
+    
 }
 
-// filterEmployees = (event) => {
-//   for (let i = 0; i < this.state.employees.length; i++) {
-//     let element = this.state.employees[i];
-//     let elementName = this.state.employees[i].name
-//     if(elementName.charAt(0) === searchArray[1]){
-//       employeeArray.push(element)
-
-//     }
-//   }
-  
-// }
-
-// componentDidMount(){
-//   this.filterEmployees()
-// }
+componentDidMount(){
+  this.filterEmployees()
+}
 
 render() {
+  this.filterEmployees()
     return (
       <div>
         <Header />
@@ -65,7 +66,7 @@ render() {
                 {this.state.employees.map(employee => (
                   <tr>
                     <Table
-                      // key={employee.id}
+                      key={employee.id}
                       id={employee.id}
                       img={employee.image}
                       name={employee.name}
