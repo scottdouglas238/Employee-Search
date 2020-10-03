@@ -5,8 +5,7 @@ import Table from "./components/Table"
 import employees from "./employees.json"
 import "./app.css"
 
-let employeeArray = []
-console.log(employeeArray)
+let employeeArray = [];
 
 class App extends Component {
   state = {
@@ -17,16 +16,22 @@ class App extends Component {
   
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    
     this.setState({
-      [name]: value,
+      [name]: value
     });
   }
   
-  filterEmployees = (event) => {
+  // clearArray = () => {
+  //   const returnSearch = this.state.search
+  //   for (let i = 0; i < employeeArray.length; i++) {
+  //     employeeArray[i].push(null)
+     
+  //   }
+  // }
+
+  filterEmployees = () => {
+    employeeArray.splice(0, employeeArray.length)
     const returnSearch = this.state.search
-    // console.log(returnSearch)
-    // let employeeArray = []
     for (let i = 0; i < this.state.employees.length; i++) {
       let element = this.state.employees[i];
       let elementName = this.state.employees[i].name
@@ -43,8 +48,8 @@ componentDidMount(){
 
 render() {
   this.filterEmployees()
-    return (
-      <div>
+  return (
+    <div>
         <Header />
         <p>{this.state.search}</p>
         <Search 
@@ -63,7 +68,7 @@ render() {
                 </tr>
               </thead>
               <tbody>
-                {this.state.employees.map(employee => (
+                {employeeArray.map(employee => (
                   <tr>
                     <Table
                       key={employee.id}
