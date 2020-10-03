@@ -20,7 +20,11 @@ class App extends Component {
       [name]: value
     });
   }
-
+  
+  appendToPage = () => {
+    employeeArray.push(this.state.employees)
+  }
+  
   filterEmployees = () => {
     employeeArray.splice(0, employeeArray.length)
     const returnSearch = this.state.search
@@ -44,6 +48,7 @@ componentDidMount(){
 }
 
 render() {
+  this.appendToPage()
   this.filterEmployees()
   return (
     <div>
