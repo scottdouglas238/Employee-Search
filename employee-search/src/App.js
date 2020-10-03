@@ -31,8 +31,11 @@ class App extends Component {
     for (let i = 0; i < this.state.employees.length; i++) {
       let element = this.state.employees[i];
       let elementName = this.state.employees[i].name
-      if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && returnSearch.length === 1){
+      if(returnSearch.toLocaleLowerCase() === "all"){
         employeeArray.push(element)
+      }
+       else if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && returnSearch.length === 1){
+        employeeArray.push(element)  
       } else if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && elementName.charAt(1).toLocaleLowerCase() === returnSearch.charAt(1).toLocaleLowerCase() && returnSearch.length === 2){
         employeeArray.push(element)
       } else if(elementName.charAt(0).toLocaleLowerCase() === returnSearch.charAt(0).toLocaleLowerCase() && elementName.charAt(1).toLocaleLowerCase() === returnSearch.charAt(1).toLocaleLowerCase() && elementName.charAt(2).toLocaleLowerCase() === returnSearch.charAt(2).toLocaleLowerCase() && returnSearch.length === 3){
