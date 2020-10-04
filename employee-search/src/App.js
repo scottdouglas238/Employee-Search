@@ -40,22 +40,28 @@ class App extends Component {
 
   sortByName = () => {
     const {employees} = this.state
-     
-    this.setState({
-      employees: 
-
-    employees.sort(function(a, b){
-      const nameA = a.name.toLowerCase()
-      const nameB = b.name.toLowerCase()
-      if(nameA < nameB){
-        return -1;
-      }
-      if(nameA > nameB){
-        return 1;
-      }
-      return 0;
-    })
-    })
+    const {alphabetical} = this.state
+    if(!alphabetical){
+      this.setState({alphabetical: true,
+        employees: employees.sort(function(a, b){
+        const nameA = a.name.toLowerCase()
+        const nameB = b.name.toLowerCase()
+        if(nameA < nameB) return -1
+        if(nameA > nameB) return 1
+        return 0 
+      })
+      });
+      } else if(alphabetical){
+      this.setState({alphabetical: false,
+        employees: employees.sort(function(a, b){
+            const nameA = a.name.toLowerCase()
+            const nameB = b.name.toLowerCase()
+            if(nameA > nameB) return -1;
+            if(nameA < nameB) return 1;
+            return 0 
+      })
+      }) 
+    }
   }
   
   filterEmployees = (employee) => {
@@ -72,9 +78,6 @@ class App extends Component {
 
   render() {
     const { employees } = this.state;
-    
-
-    console.log(employees)
     
     return (
       <div>
