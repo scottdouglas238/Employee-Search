@@ -8,6 +8,7 @@ import API from "./utils/API";
 class App extends Component {
   state = {
     search: "",
+    sortTriangle: "",
     employees: [],
     sorted: [],
     alphabetical: false
@@ -42,7 +43,7 @@ class App extends Component {
     const {employees} = this.state
     const {alphabetical} = this.state
     if(!alphabetical){
-      this.setState({alphabetical: true,
+      this.setState({alphabetical: true, sortTriangle: "▲",
         employees: employees.sort(function(a, b){
         const nameA = a.name.toLowerCase()
         const nameB = b.name.toLowerCase()
@@ -52,7 +53,7 @@ class App extends Component {
       })
       });
       } else if(alphabetical){
-      this.setState({alphabetical: false,
+      this.setState({alphabetical: false, sortTriangle: "▼",
         employees: employees.sort(function(a, b){
             const nameA = a.name.toLowerCase()
             const nameB = b.name.toLowerCase()
@@ -93,7 +94,7 @@ class App extends Component {
               <thead>
                 <tr>
                   <th scope="col">Image</th>
-                  <th onClick = {this.sortByName} scope="col">Name</th>
+                  <th onClick = {this.sortByName} scope="col" id = "cursor">Name {this.state.sortTriangle}</th>
                   <th scope="col">Phone</th>
                   <th scope="col">Email</th>
                   <th scope="col">DOB</th>
