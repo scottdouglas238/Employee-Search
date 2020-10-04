@@ -9,6 +9,8 @@ class App extends Component {
   state = {
     search: "",
     employees: [],
+    sorted: [],
+    alphabetical: false
   };
 
   componentDidMount() {
@@ -33,6 +35,29 @@ class App extends Component {
     });
   };
 
+ 
+
+
+  sortByName = () => {
+    const {employees} = this.state
+     
+    this.setState({
+      employees: 
+
+    employees.sort(function(a, b){
+      const nameA = a.name.toLowerCase()
+      const nameB = b.name.toLowerCase()
+      if(nameA < nameB){
+        return -1;
+      }
+      if(nameA > nameB){
+        return 1;
+      }
+      return 0;
+    })
+    })
+  }
+  
   filterEmployees = (employee) => {
     const { search } = this.state;
     if (!search) return true;
@@ -47,7 +72,10 @@ class App extends Component {
 
   render() {
     const { employees } = this.state;
+    
 
+    console.log(employees)
+    
     return (
       <div>
         <Header />
@@ -62,7 +90,7 @@ class App extends Component {
               <thead>
                 <tr>
                   <th scope="col">Image</th>
-                  <th scope="col">Name</th>
+                  <th onClick = {this.sortByName} scope="col">Name</th>
                   <th scope="col">Phone</th>
                   <th scope="col">Email</th>
                   <th scope="col">DOB</th>
